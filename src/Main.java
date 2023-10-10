@@ -10,9 +10,9 @@ public class Main {
         randomize(matr);
         printMatr(matr);
         printLineSums(matr);
-        maxNumber(matr);
+        System.out.println("максимальный элемент =  "+maxNumber(matr));
         stringWithMaxNumber(matr);
-        minNumber(matr);
+        System.out.println("минимальный элемент =  "+minNumber(matr));
         stringWithoutMaxMinNumber(matr);
     }
 
@@ -70,15 +70,19 @@ public class Main {
                     max = matr[i][j];
             }
         }
-        System.out.println("максимальный элемент =  "+max);
+        //System.out.println("максимальный элемент =  "+max);
         return max;
     }
     public static void stringWithMaxNumber(int[][] matr)
     {int max = maxNumber(matr);
         for (int i = 0; i < matr.length; i++) {
             for (int j = 0; j < matr[i].length; j++) {
-                if (matr[i][j] == max)
-                    System.out.println("максимальный элемент находится в строке  "+i);
+                if (matr[i][j] == max) {
+                    System.out.println("максимальный элемент находится в строке  " + i);
+                    System.out.println("столбец с максимальным элементом:");
+                    for (int s = 0; s < matr.length; s++)
+                        System.out.println(matr[s][j]);
+                }
             }
         }
     }
@@ -91,7 +95,7 @@ public class Main {
                     min = matr[i][j];
             }
         }
-        System.out.println("минимальный элемент =  "+min);
+        //System.out.println("минимальный элемент =  "+min);
         return min;
     }
 
@@ -99,13 +103,18 @@ public class Main {
     public static void stringWithoutMaxMinNumber(int[][] matr)
     {int max = maxNumber(matr);
         int min = minNumber(matr);
+        int s;
+
         for (int i = 0; i < matr.length; i++) {
+            int a =0;
             for (int j = 0; j < matr[i].length; j++) {
                 if (matr[i][j] == max || matr[i][j] == min )
-                    ;
+                    a = -1;
                 else
-                    System.out.println("строка без max и min элементов  "+i);
+                    s=i;
             }
+            if (a != -1)
+                System.out.println("строка без max и min элементов  "+i);
         }
     }
 }
