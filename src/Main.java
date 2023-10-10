@@ -10,11 +10,20 @@ public class Main {
         randomize(matr);
         printMatr(matr);
         printLineSums(matr);
+        maxNumber(matr);
+        stringWithMaxNumber(matr);
+        minNumber(matr);
+        stringWithoutMaxMinNumber(matr);
     }
 
     private static int[][] createMatrixOfZeroes() {
         Scanner scan = new Scanner(System.in);
         System.out.println("Введите размеры матрицы");
+        int[][] matr = getMatr(scan);
+        return matr;
+    }
+
+    private static int[][] getMatr(Scanner scan) {
         int n = scan.nextInt();
         int m = scan.nextInt();
         int[][] matr = new int[n][m];
@@ -51,6 +60,52 @@ public class Main {
                 s += matr[i][j];
             }
             System.out.println("сумма элементов строки "+i+" равна "+s);
+        }
+    }
+    public static int maxNumber(int[][] matr)
+    {int max = 0;
+        for (int i = 0; i < matr.length; i++) {
+            for (int j = 0; j < matr[i].length; j++) {
+                if (matr[i][j]>max)
+                    max = matr[i][j];
+            }
+        }
+        System.out.println("максимальный элемент =  "+max);
+        return max;
+    }
+    public static void stringWithMaxNumber(int[][] matr)
+    {int max = maxNumber(matr);
+        for (int i = 0; i < matr.length; i++) {
+            for (int j = 0; j < matr[i].length; j++) {
+                if (matr[i][j] == max)
+                    System.out.println("максимальный элемент находится в строке  "+i);
+            }
+        }
+    }
+
+    public static int minNumber(int[][] matr)
+    {int min = 99;
+        for (int i = 0; i < matr.length; i++) {
+            for (int j = 0; j < matr[i].length; j++) {
+                if (matr[i][j]<min)
+                    min = matr[i][j];
+            }
+        }
+        System.out.println("минимальный элемент =  "+min);
+        return min;
+    }
+
+
+    public static void stringWithoutMaxMinNumber(int[][] matr)
+    {int max = maxNumber(matr);
+        int min = minNumber(matr);
+        for (int i = 0; i < matr.length; i++) {
+            for (int j = 0; j < matr[i].length; j++) {
+                if (matr[i][j] == max || matr[i][j] == min )
+                    ;
+                else
+                    System.out.println("строка без max и min элементов  "+i);
+            }
         }
     }
 }
