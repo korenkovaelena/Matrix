@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
@@ -26,7 +27,9 @@ public class Main {
     {
         for (int i = 0; i < matr.length; i++) {
             for (int j = 0; j < matr[i].length; j++) {
-                matr[i][j] = 19;
+                Random rn = new Random();
+                int randomNum = rn.nextInt(100) ;
+                matr[i][j] = randomNum;
             }
         }
     }
