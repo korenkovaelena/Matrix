@@ -103,18 +103,18 @@ public class Main {
     public static void stringWithoutMaxMinNumber(int[][] matr)
     {int max = maxNumber(matr);
         int min = minNumber(matr);
-        int s;
-
         for (int i = 0; i < matr.length; i++) {
-            int a =0;
+            int[][] newmatr = new int[1][matr[i].length];
+            boolean flagMinMax =true;
             for (int j = 0; j < matr[i].length; j++) {
                 if (matr[i][j] == max || matr[i][j] == min )
-                    a = -1;
-                else
-                    s=i;
+                    flagMinMax = false;
             }
-            if (a != -1)
-                System.out.println("строка без max и min элементов  "+i);
+            if (flagMinMax) {
+                newmatr = new int[][]{matr[i]};
+                System.out.println("строка без max и min элементов:  "+i);
+                printMatr(newmatr);
+            }
         }
     }
 }
