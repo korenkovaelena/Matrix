@@ -11,7 +11,7 @@ public class Main {
         printMatr(matr);
         printLineSums(matr);
         System.out.println("максимальный элемент =  "+maxNumber(matr));
-        stringWithMaxNumber(matr);
+        columnWithMaxNumber(matr);
         System.out.println("минимальный элемент =  "+minNumber(matr));
         stringWithoutMaxMinNumber(matr);
     }
