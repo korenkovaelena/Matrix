@@ -73,7 +73,7 @@ public class Main {
         //System.out.println("максимальный элемент =  "+max);
         return max;
     }
-    public static void stringWithMaxNumber(int[][] matr)
+    public static void columnWithMaxNumber(int[][] matr)
     {int max = maxNumber(matr);
         for (int i = 0; i < matr.length; i++) {
             for (int j = 0; j < matr[i].length; j++) {
